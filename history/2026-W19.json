@@ -1,0 +1,73 @@
+{
+  "week": "2026-W19",
+  "collected_date": "2026-05-11",
+  "total_count": 40,
+  "relevant_count": 10,
+  "top_keywords": [
+    {
+      "keyword": "고용",
+      "count": 5,
+      "trend": "상승"
+    },
+    {
+      "keyword": "교육",
+      "count": 4,
+      "trend": "유지"
+    },
+    {
+      "keyword": "중소기업",
+      "count": 3,
+      "trend": "신규"
+    }
+  ],
+  "policies": [
+    {
+      "title": "노동부, 가족돌봄휴직·휴가 적용범위 확대 검토",
+      "source": "한겨레",
+      "date": "2026-05-11",
+      "url": "https://www.hani.co.kr/arti/society/labor/1257997.html",
+      "ministry": "고용노동부",
+      "relevance": "높음",
+      "keywords": [
+        "고용",
+        "가족돌봄휴직"
+      ],
+      "business_opportunity": "우리 회사의 직업훈련 및 내일배움카드 사업과 연계 가능",
+      "action": "즉시검토"
+    },
+    {
+      "title": "[게시판] 보훈부, '제대군인 고용우수기업' 인증 신청 접수",
+      "source": "연합뉴스",
+      "date": "2026-05-11",
+      "url": "https://www.yna.co.kr/view/AKR20260511058000504",
+      "ministry": "중소벤처기업부",
+      "relevance": "중간",
+      "keywords": [
+        "중소기업",
+        "제대군인"
+      ],
+      "business_opportunity": "우리 회사의 중소기업 지원 사업과 연계 가능",
+      "action": "참고"
+    },
+    {
+      "title": "농식품부, '창업 네트워크' 본격 운영…권역별 협력 생태계 구축",
+      "source": "연합뉴스",
+      "date": "2026-05-11",
+      "url": "https://www.yna.co.kr/view/AKR20260511056000030",
+      "ministry": "중소벤처기업부",
+      "relevance": "중간",
+      "keywords": [
+        "중소기업",
+        "창업"
+      ],
+      "business_opportunity": "우리 회사의 창업 지원 사업과 연계 가능",
+      "action": "모니터링"
+    }
+  ],
+  "weekly_insight": "이번 주 고용노동부는 가족돌봄휴직·휴가 적용범위를 확대 검토하고 있으며, 중소벤처기업부는 중소기업 지원 사업을 강화하고 있습니다. 교육부는 교육 과정 개편을 준비 중입니다.",
+  "recommended_actions": [
+    "고용노동부의 가족돌봄휴직·휴가 정책에 대한 즉시 검토",
+    "중소벤처기업부의 중소기업 지원 사업에 대한 참고",
+    "교육부의 교육 과정 개편에 대한 모니터링"
+  ]
+}

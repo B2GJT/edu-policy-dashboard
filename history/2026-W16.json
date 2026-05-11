@@ -1,0 +1,98 @@
+{
+  "week": "2026-W16",
+  "collected_date": "2026-04-20",
+  "total_count": 30,
+  "relevant_count": 5,
+  "top_keywords": [
+    {
+      "keyword": "청년",
+      "count": 3,
+      "trend": "상승"
+    },
+    {
+      "keyword": "교육",
+      "count": 2,
+      "trend": "유지"
+    },
+    {
+      "keyword": "인재",
+      "count": 2,
+      "trend": "신규"
+    }
+  ],
+  "policies": [
+    {
+      "title": "K-푸드 창업사관학교 출범…1년 간 창업 전 과정 지원",
+      "source": "정책브리핑",
+      "date": "2026-04-16",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962824&call_from=rsslink",
+      "relevance": "높음",
+      "keywords": [
+        "청년",
+        "창업",
+        "교육"
+      ],
+      "business_opportunity": "청년 창업을 지원하는 정책으로, 우리 회사의 교육/HR 사업과 연계 가능성이 높다. 청년 창업을 위한 교육 및 훈련 프로그램 개발에 활용할 수 있다.",
+      "action": "즉시검토"
+    },
+    {
+      "title": "AI로 돌봄 공백 메운다…인공지능 돌봄기술 전주기 지원체계 구축",
+      "source": "정책브리핑",
+      "date": "2026-04-16",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962821&call_from=rsslink",
+      "relevance": "중간",
+      "keywords": [
+        "AI",
+        "교육"
+      ],
+      "business_opportunity": "AI를 활용한 돌봄 기술 개발로, 우리 회사의 교육/HR 사업과 연계 가능성이 있다. AI 교육 및 훈련 프로그램 개발에 활용할 수 있다.",
+      "action": "참고"
+    },
+    {
+      "title": "국가바이오혁신위 출범…초격차 기술로 글로벌 바이오 중심국 도약",
+      "source": "정책브리핑",
+      "date": "2026-04-16",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962827&call_from=rsslink",
+      "relevance": "중간",
+      "keywords": [
+        "인재",
+        "교육"
+      ],
+      "business_opportunity": "바이오 기술 개발로, 우리 회사의 교육/HR 사업과 연계 가능성이 있다. 바이오 기술 관련 교육 및 훈련 프로그램 개발에 활용할 수 있다.",
+      "action": "참고"
+    },
+    {
+      "title": "올해 강소특구에 535억 지원…청년 창업에 60% 이상 배정",
+      "source": "정책브리핑",
+      "date": "2026-04-16",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962831&call_from=rsslink",
+      "relevance": "높음",
+      "keywords": [
+        "청년",
+        "창업",
+        "교육"
+      ],
+      "business_opportunity": "청년 창업을 지원하는 정책으로, 우리 회사의 교육/HR 사업과 연계 가능성이 높다. 청년 창업을 위한 교육 및 훈련 프로그램 개발에 활용할 수 있다.",
+      "action": "즉시검토"
+    },
+    {
+      "title": "이 대통령 \"국가 안보 차원서 첨단 기술과 인재 중점 보호\"",
+      "source": "정책브리핑",
+      "date": "2026-04-16",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962823&call_from=rsslink",
+      "relevance": "중간",
+      "keywords": [
+        "인재",
+        "교육"
+      ],
+      "business_opportunity": "첨단 기술 개발로, 우리 회사의 교육/HR 사업과 연계 가능성이 있다. 첨단 기술 관련 교육 및 훈련 프로그램 개발에 활용할 수 있다.",
+      "action": "참고"
+    }
+  ],
+  "weekly_insight": "이번 주에는 청년 창업과 교육 관련 정책이 많이 발표되었습니다. 또한, AI와 바이오 기술 개발 관련 정책도 발표되었습니다. 이러한 정책들은 우리 회사의 교육/HR 사업과 연계 가능성이 높습니다.",
+  "recommended_actions": [
+    "청년 창업을 위한 교육 및 훈련 프로그램 개발",
+    "AI와 바이오 기술 관련 교육 및 훈련 프로그램 개발",
+    "첨단 기술 개발을 위한 인재 중점 보호 정책 개발"
+  ]
+}

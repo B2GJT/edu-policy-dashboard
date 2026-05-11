@@ -1,0 +1,92 @@
+{
+  "week": "2026-W15",
+  "collected_date": "2026-04-13",
+  "total_count": 30,
+  "relevant_count": 5,
+  "top_keywords": [
+    {
+      "keyword": "직업훈련",
+      "count": 2,
+      "trend": "상승"
+    },
+    {
+      "keyword": "인재개발",
+      "count": 1,
+      "trend": "신규"
+    },
+    {
+      "keyword": "에듀테크",
+      "count": 1,
+      "trend": "유지"
+    }
+  ],
+  "policies": [
+    {
+      "title": "배움 문턱 낮춰요 1인당 35만 원 지원",
+      "source": "정책브리핑",
+      "date": "2026-04-10",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962019&call_from=rsslink",
+      "relevance": "높음",
+      "keywords": [
+        "직업훈련",
+        "인재개발"
+      ],
+      "business_opportunity": "우리 회사의 교육/HR 사업에 활용할 수 있는 정부 지원 정책",
+      "action": "즉시검토"
+    },
+    {
+      "title": "새벽에도 외국어도 OK! 노동법 상담 도우미 24시간 대기 중",
+      "source": "정책브리핑",
+      "date": "2026-04-10",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962024&call_from=rsslink",
+      "relevance": "중간",
+      "keywords": [
+        "직업훈련"
+      ],
+      "business_opportunity": "노동법 관련 교육 콘텐츠 개발",
+      "action": "참고"
+    },
+    {
+      "title": "야간 연장돌봄 전화 한 통으로 '1522-1318' 기억하세요",
+      "source": "정책브리핑",
+      "date": "2026-04-10",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962018&call_from=rsslink",
+      "relevance": "중간",
+      "keywords": [
+        "에듀테크"
+      ],
+      "business_opportunity": "아동돌봄 관련 교육 콘텐츠 개발",
+      "action": "모니터링"
+    },
+    {
+      "title": "학원비 '편법인상' 등 2394건 적발…\"불법행위 신고포상금 10배로\"",
+      "source": "정책브리핑",
+      "date": "2026-04-09",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962378&call_from=rsslink",
+      "relevance": "중간",
+      "keywords": [
+        "직업훈련"
+      ],
+      "business_opportunity": "학원비 관련 교육 콘텐츠 개발",
+      "action": "참고"
+    },
+    {
+      "title": "고위공직자범죄 내부고발 익명신고센터' 개소…신고자 신원 보호",
+      "source": "정책브리핑",
+      "date": "2026-04-09",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962380&call_from=rsslink",
+      "relevance": "중간",
+      "keywords": [
+        "인재개발"
+      ],
+      "business_opportunity": "내부고발 관련 교육 콘텐츠 개발",
+      "action": "모니터링"
+    }
+  ],
+  "weekly_insight": "이번 주에는 직업훈련과 인재개발 관련 정책이 주목을 받았으며, 에듀테크 관련 정책도 유지되는趨勢를 보였다. 정부의 지원 정책을 활용하여 교육/HR 사업을 발전시킬 수 있는 기회가 있다.",
+  "recommended_actions": [
+    "즉시검토",
+    "참고",
+    "모니터링"
+  ]
+}

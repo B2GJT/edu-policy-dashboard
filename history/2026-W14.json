@@ -1,0 +1,96 @@
+{
+  "week": "2026-W14",
+  "collected_date": "2026-04-09",
+  "total_count": 30,
+  "relevant_count": 5,
+  "top_keywords": [
+    {
+      "keyword": "교육",
+      "count": 3,
+      "trend": "상승"
+    },
+    {
+      "keyword": "훈련",
+      "count": 2,
+      "trend": "유지"
+    },
+    {
+      "keyword": "인재개발",
+      "count": 1,
+      "trend": "신규"
+    }
+  ],
+  "policies": [
+    {
+      "title": "이주배경학생 위한 '모두의 한국어' 시스템, 연말 전면 개방",
+      "source": "정책브리핑",
+      "date": "2026-04-08",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962324&call_from=rsslink",
+      "relevance": "높음",
+      "keywords": [
+        "교육",
+        "인재개발"
+      ],
+      "business_opportunity": "우리 회사의 교육/HR 사업에 적용 가능한 포인트는 이주배경학생을 위한 한국어 교육 시스템의 개발 및 제공입니다. 이를 통해 우리 회사의 교육 콘텐츠 및 서비스를 다각화할 수 있습니다.",
+      "action": "즉시검토"
+    },
+    {
+      "title": "현직 교사 500명 1:1 대입 상담 지원…AI 대화형 챗봇도 신설",
+      "source": "정책브리핑",
+      "date": "2026-04-07",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962230&call_from=rsslink",
+      "relevance": "중간",
+      "keywords": [
+        "교육",
+        "훈련"
+      ],
+      "business_opportunity": "우리 회사의 교육/HR 사업에 적용 가능한 포인트는 대입 상담 지원 서비스의 개발 및 제공입니다. 이를 통해 우리 회사의 교육 서비스를 확대할 수 있습니다.",
+      "action": "참고"
+    },
+    {
+      "title": "AI·반도체 박사급 인재-기업 잇는 산·학 프로젝트 추진",
+      "source": "정책브리핑",
+      "date": "2026-04-08",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962321&call_from=rsslink",
+      "relevance": "중간",
+      "keywords": [
+        "인재개발",
+        "훈련"
+      ],
+      "business_opportunity": "우리 회사의 교육/HR 사업에 적용 가능한 포인트는 박사급 인재를 위한 산·학 프로젝트의 개발 및 제공입니다. 이를 통해 우리 회사의 교육 서비스를 다각화할 수 있습니다.",
+      "action": "모니터링"
+    },
+    {
+      "title": "5~10년차 공무원에 '특별휴가' 준다…'돌봄휴가' 사유도 확대",
+      "source": "정책브리핑",
+      "date": "2026-04-07",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962237&call_from=rsslink",
+      "relevance": "중간",
+      "keywords": [
+        "인재개발",
+        "훈련"
+      ],
+      "business_opportunity": "우리 회사의 교육/HR 사업에 적용 가능한 포인트는 공무원의 휴가 제도 개선입니다. 이를 통해 우리 회사의 교육 서비스를 확대할 수 있습니다.",
+      "action": "모니터링"
+    },
+    {
+      "title": "스타트업의 방산 진출 늘린다…'모두의 챌린지 방산' 본격 추진",
+      "source": "정책브리핑",
+      "date": "2026-04-08",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962308&call_from=rsslink",
+      "relevance": "중간",
+      "keywords": [
+        "인재개발",
+        "훈련"
+      ],
+      "business_opportunity": "우리 회사의 교육/HR 사업에 적용 가능한 포인트는 스타트업의 방산 진출을 위한 지원 서비스의 개발 및 제공입니다. 이를 통해 우리 회사의 교육 서비스를 다각화할 수 있습니다.",
+      "action": "모니터링"
+    }
+  ],
+  "weekly_insight": "이번 주에는 교육 및 인재개발 관련 정책이 다수 발표되었습니다. 특히, 이주배경학생을 위한 한국어 교육 시스템의 개발 및 제공, 대입 상담 지원 서비스의 개발 및 제공, 박사급 인재를 위한 산·학 프로젝트의 개발 및 제공 등이 우리 회사의 교육/HR 사업에 적용 가능한 포인트입니다.",
+  "recommended_actions": [
+    "이주배경학생을 위한 한국어 교육 시스템의 개발 및 제공",
+    "대입 상담 지원 서비스의 개발 및 제공",
+    "박사급 인재를 위한 산·학 프로젝트의 개발 및 제공"
+  ]
+}

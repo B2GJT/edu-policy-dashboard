@@ -1,0 +1,101 @@
+{
+  "week": "2026-W17",
+  "collected_date": "2026-04-27",
+  "total_count": 40,
+  "relevant_count": 15,
+  "top_keywords": [
+    {
+      "keyword": "고유가 지원금",
+      "count": 7,
+      "trend": "상승"
+    },
+    {
+      "keyword": "중소기업 지원",
+      "count": 4,
+      "trend": "유지"
+    },
+    {
+      "keyword": "교육 지원",
+      "count": 3,
+      "trend": "신규"
+    }
+  ],
+  "policies": [
+    {
+      "title": "고유가 피해지원금 신청 첫날…대전서도 취약계층 발걸음 이어져",
+      "source": "연합뉴스",
+      "date": "2026-04-27",
+      "url": "https://www.yna.co.kr/view/AKR20260427068600063",
+      "ministry": "기타",
+      "relevance": "높음",
+      "keywords": [
+        "고유가 지원금",
+        "취약계층"
+      ],
+      "business_opportunity": "우리 회사가 취약계층을 대상으로 하는 교육/HR 사업을 확대할 수 있는 기회가 있을 수 있음",
+      "action": "즉시검토"
+    },
+    {
+      "title": "중기부, '탄소감축 R&D' 참여 中企 모집…철강·알루미늄 분야",
+      "source": "연합뉴스",
+      "date": "2026-04-27",
+      "url": "https://www.yna.co.kr/view/AKR20260427036600030",
+      "ministry": "중소벤처기업부",
+      "relevance": "중간",
+      "keywords": [
+        "중소기업 지원",
+        "탄소감축"
+      ],
+      "business_opportunity": "우리 회사가 중소기업을 대상으로 하는 교육/HR 사업을 통해 탄소감축을 지원할 수 있는 기회가 있을 수 있음",
+      "action": "참고"
+    },
+    {
+      "title": "교육부, '영유아 교육·보육 정보시스템' 구축 시범지역 공모",
+      "source": "연합뉴스",
+      "date": "2026-04-27",
+      "url": "https://www.yna.co.kr/view/AKR20260427039200530",
+      "ministry": "교육부",
+      "relevance": "높음",
+      "keywords": [
+        "교육 지원",
+        "영유아 교육"
+      ],
+      "business_opportunity": "우리 회사가 교육부의 영유아 교육·보육 정보시스템 구축 사업에 참여할 수 있는 기회가 있을 수 있음",
+      "action": "즉시검토"
+    },
+    {
+      "title": "광주경총, 고용이음 패키지 사업 추진…총 9억원 지원",
+      "source": "연합뉴스",
+      "date": "2026-04-27",
+      "url": "https://www.yna.co.kr/view/AKR20260427055700054",
+      "ministry": "중소벤처기업부",
+      "relevance": "중간",
+      "keywords": [
+        "중소기업 지원",
+        "고용이음"
+      ],
+      "business_opportunity": "우리 회사가 중소기업을 대상으로 하는 교육/HR 사업을 통해 고용이음 패키지 사업에 참여할 수 있는 기회가 있을 수 있음",
+      "action": "참고"
+    },
+    {
+      "title": "포스코그룹, 산재가족돌봄재단 '포스코 희망이음' 출범",
+      "source": "연합뉴스",
+      "date": "2026-04-27",
+      "url": "https://www.yna.co.kr/view/AKR20260427088900003",
+      "ministry": "중소벤처기업부",
+      "relevance": "중간",
+      "keywords": [
+        "중소기업 지원",
+        "산재가족돌봄재단"
+      ],
+      "business_opportunity": "우리 회사가 중소기업을 대상으로 하는 교육/HR 사업을 통해 산재가족돌봄재단에 참여할 수 있는 기회가 있을 수 있음",
+      "action": "참고"
+    }
+  ],
+  "weekly_insight": "이번 주 정부는 고유가 지원금을 지급하기 시작했으며, 중소기업을 지원하는 다양한 사업을 추진하고 있음. 교육부는 영유아 교육·보육 정보시스템 구축 사업을 추진하고 있으며, 중소벤처기업부는 중소기업을 지원하는 다양한 사업을 추진하고 있음.",
+  "recommended_actions": [
+    "고유가 지원금을 활용한 교육/HR 사업을 개발하기",
+    "중소기업을 대상으로 하는 교육/HR 사업을 확대하기",
+    "교육부의 영유아 교육·보육 정보시스템 구축 사업에 참여하기"
+  ]
+}

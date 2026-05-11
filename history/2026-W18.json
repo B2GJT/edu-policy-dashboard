@@ -1,0 +1,73 @@
+{
+  "week": "2026-W18",
+  "collected_date": "2026-05-07",
+  "total_count": 30,
+  "relevant_count": 10,
+  "top_keywords": [
+    {
+      "keyword": "청년",
+      "count": 5,
+      "trend": "상승"
+    },
+    {
+      "keyword": "교육",
+      "count": 4,
+      "trend": "유지"
+    },
+    {
+      "keyword": "지원",
+      "count": 3,
+      "trend": "신규"
+    }
+  ],
+  "policies": [
+    {
+      "title": "예산군, 고립·은둔 청년 실태조사…맞춤형 지원책 마련",
+      "source": "연합뉴스",
+      "date": "2026-05-07",
+      "url": "https://www.yna.co.kr/view/AKR20260507039100063",
+      "ministry": "고용노동부",
+      "relevance": "높음",
+      "keywords": [
+        "청년",
+        "지원"
+      ],
+      "business_opportunity": "우리 회사가 청년 지원 사업에 참여할 수 있는 기회",
+      "action": "즉시검토"
+    },
+    {
+      "title": "경기도, '교육훈련 우수사례 평가' 행안부 장관상 수상",
+      "source": "연합뉴스",
+      "date": "2026-05-07",
+      "url": "https://www.yna.co.kr/view/AKR20260507034300061",
+      "ministry": "교육부",
+      "relevance": "중간",
+      "keywords": [
+        "교육",
+        "훈련"
+      ],
+      "business_opportunity": "우리 회사가 교육훈련 사업에 참여할 수 있는 기회",
+      "action": "참고"
+    },
+    {
+      "title": "중진공, K-패션 日 공략 지원…전략 수립·패션쇼까지 통합 지원",
+      "source": "연합뉴스",
+      "date": "2026-05-07",
+      "url": "https://www.yna.co.kr/view/AKR20260507028500030",
+      "ministry": "중소벤처기업부",
+      "relevance": "높음",
+      "keywords": [
+        "지원",
+        "중소기업"
+      ],
+      "business_opportunity": "우리 회사가 중소기업 지원 사업에 참여할 수 있는 기회",
+      "action": "즉시검토"
+    }
+  ],
+  "weekly_insight": "이번 주에는 청년 지원과 교육훈련 사업이 주목을 받았으며, 중소벤처기업부의 지원 사업도 활발하게 진행되고 있다. 우리 회사는 이러한 정부 정책과 지원 사업에 적극적으로 참여하여 사업 기회를 확대할 수 있을 것이다.",
+  "recommended_actions": [
+    "청년 지원 사업에 참여하기",
+    "교육훈련 사업에 참여하기",
+    "중소벤처기업부의 지원 사업에 참여하기"
+  ]
+}
