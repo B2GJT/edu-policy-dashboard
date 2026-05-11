@@ -39,11 +39,11 @@ EMAIL_RECIPIENTS = [
     "chanhyeok.joo@day1company.co.kr"
 ]
 EMAIL_SUBJECT  = "[주간] 교육 정책 트렌드 리포트"
-DASHBOARD_URL  = "https://kyeongmin-lim.github.io/edu-policy-dashboard"
+DASHBOARD_URL  = "https://b2gjt.github.io/edu-policy-dashboard"
 
 # GitHub 설정 (재발급 시 .env 파일의 GITHUB_TOKEN 교체)
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
-GITHUB_REPO  = "Kyeongmin-Lim/edu-policy-dashboard"
+GITHUB_REPO  = "B2GJT/edu-policy-dashboard"
 GITHUB_FILE  = "index.html"
 
 # 뉴스 RSS 피드 목록 (연합뉴스 등 - 정부 부처 보도자료 포함)

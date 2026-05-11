@@ -36,7 +36,7 @@
 
 ## 대시보드
 
-https://kyeongmin-lim.github.io/edu-policy-dashboard
+https://b2gjt.github.io/edu-policy-dashboard
 
 ## 실행 방법
 
@@ -64,5 +64,6 @@ python policy_crawler.py
 |---|---|
 | 2026-04-09 | 최초 구축 (정책브리핑 RSS, Groq AI, GitHub Pages, 이메일 연동) |
 | 2026-04-27 | RSS 소스 교체 — korea.kr 서버 차단으로 연합뉴스·한겨레 5개 피드로 변경, 키워드 사전 필터링 추가, 부처별 분류(고용노동부/교육부/중기부) 추가 |
+| 2026-05-11 | GitHub 팀 계정(B2GJT)으로 이전, 민감 정보 .env 분리 |
 
-*마지막 업데이트: 2026-04-27*
+*마지막 업데이트: 2026-05-11*
