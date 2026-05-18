@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교육/HR 정책 트렌드 대시보드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* 헤더 */
+  header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+    color: white;
+    padding: 28px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.3px; }
+  header .subtitle { font-size: 0.8rem; opacity: 0.75; margin-top: 5px; font-weight: 400; }
+  .updated-info { font-size: 0.75rem; opacity: 0.65; text-align: right; }
+
+  /* 주차 네비게이터 */
+  .week-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+  .week-nav button {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 7px 18px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .week-nav button:hover:not(:disabled) {
+    background: #1d4ed8;
+    color: white;
+    border-color: #1d4ed8;
+  }
+  .week-nav button:disabled { opacity: 0.3; cursor: default; }
+  .week-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    min-width: 120px;
+    text-align: center;
+  }
+  .week-sub { font-size: 0.75rem; color: #94a3b8; text-align: center; margin-top: 2px; }
+
+  /* 컨테이너 */
+  .container { max-width: 1060px; margin: 0 auto; padding: 28px 20px; }
+
+  /* 스탯 카드 */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+  @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat-box {
+    background: white;
+    border-radius: 14px;
+    padding: 20px 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    border: 1px solid #f1f5f9;
+  }
+  .stat-label { font-size: 0.72rem; color: #94a3b8; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; margin-bottom: 8px; }
+  .stat-value { font-size: 2rem; font-weight: 700; color: #1d4ed8; line-height: 1; }
+  .stat-value.red { color: #ef4444; }
+  .stat-value.sm { font-size: 1.25rem; }
+  .stat-sub { font-size: 0.75rem; color: #cbd5e1; margin-top: 6px; }
+
+  /* 섹션 */
+  .section {
+    background: white;
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    border: 1px solid #f1f5f9;
+  }
+  .section-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  /* 인사이트 */
+  .insight-box {
+    background: #eff6ff;
+    border-left: 3px solid #1d4ed8;
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #1e3a8a;
+    font-weight: 500;
+  }
+
+  /* 키워드 칩 */
+  .kw-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .kw-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #334155;
+  }
+  .kw-trend {
+    font-size: 0.75rem;
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-weight: 700;
+  }
+  .trend-up { background: #dcfce7; color: #16a34a; }
+  .trend-new { background: #fef9c3; color: #ca8a04; }
+  .trend-keep { background: #f1f5f9; color: #64748b; }
+
+  /* 액션 리스트 */
+  .action-list { list-style: none; }
+  .action-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 0;
+    border-bottom: 1px solid #f8fafc;
+    font-size: 0.88rem;
+    color: #334155;
+  }
+  .action-list li:last-child { border-bottom: none; }
+  .action-icon {
+    width: 22px;
+    height: 22px;
+    background: #1d4ed8;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* 정책 카드 */
+  .policy-card {
+    border: 1px solid #f1f5f9;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    background: #fafbfc;
+  }
+  .policy-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-color: #e2e8f0; background: white; }
+  .policy-card-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+  .rel-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+  .policy-title { flex: 1; font-size: 0.93rem; font-weight: 600; line-height: 1.5; }
+  .policy-title a { color: #1e293b; text-decoration: none; }
+  .policy-title a:hover { color: #1d4ed8; }
+  .action-badge {
+    font-size: 0.68rem;
+    padding: 3px 9px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .badge-red { background: #fee2e2; color: #dc2626; }
+  .badge-orange { background: #ffedd5; color: #c2410c; }
+  .badge-gray { background: #f1f5f9; color: #64748b; }
+  .policy-meta { font-size: 0.74rem; color: #94a3b8; margin-bottom: 8px; padding-left: 18px; }
+  .policy-opp { font-size: 0.85rem; color: #475569; padding-left: 18px; margin-bottom: 10px; line-height: 1.65; }
+  .policy-tags { display: flex; flex-wrap: wrap; gap: 5px; padding-left: 18px; }
+  .tag {
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 0.71rem;
+    padding: 2px 9px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+  .empty-msg { text-align: center; color: #94a3b8; padding: 32px; font-size: 0.88rem; }
+  .footer { text-align: center; color: #cbd5e1; font-size: 0.73rem; margin-top: 32px; padding-bottom: 40px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>교육/HR 정책 트렌드 대시보드</h1>
+    <div class="subtitle">정부 정책 자동 수집 · AI 분석 · 매주 업데이트</div>
+  </div>
+  <div class="updated-info">마지막 업데이트<br>2026-05-18 10:09</div>
+</header>
+
+<!-- 주차 네비게이터 -->
+<div class="week-nav">
+  <button id="btn-prev" onclick="changeWeek(1)">← 이전 주</button>
+  <div>
+    <div class="week-label" id="week-label">—</div>
+    <div class="week-sub" id="week-sub">—</div>
+  </div>
+  <button id="btn-next" onclick="changeWeek(-1)">다음 주 →</button>
+</div>
+
+<div class="container">
+  <div class="stats" id="stats"></div>
+  <div class="section" id="section-insight">
+    <div class="section-title">주간 인사이트</div>
+    <div class="insight-box" id="insight-text"></div>
+  </div>
+  <div class="section" id="section-kw">
+    <div class="section-title">핵심 키워드</div>
+    <div class="kw-chips" id="kw-chips"></div>
+  </div>
+  <div class="section" id="section-actions">
+    <div class="section-title">권장 액션</div>
+    <ul class="action-list" id="action-list"></ul>
+  </div>
+  <div class="section" id="section-policies">
+    <div class="section-title">관련 정책 목록</div>
+    <div id="policy-cards"></div>
+  </div>
+  <div class="footer">정부 정책 자동 수집 시스템 · policy_crawler.py</div>
+</div>
+
+<script>
+const HISTORY = [{"week": "2026-W20", "collected_date": "2026-05-18", "total_count": 37, "relevant_count": 14, "top_keywords": [{"keyword": "AI", "count": 5, "trend": "상승"}, {"keyword": "중소기업", "count": 4, "trend": "유지"}, {"keyword": "교육", "count": 3, "trend": "신규"}], "policies": [{"title": "중기부, 'AI 인재 창업패키지 시범사업' 공모…최대 2억원 지원", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260516043200030", "ministry": "중소벤처기업부", "relevance": "높음", "keywords": ["AI", "창업", "중소기업"], "business_opportunity": "우리 회사가 AI 교육 및 창업 지원 사업에 참여할 수 있는 기회", "action": "즉시검토"}, {"title": "부산시, 민관협력 기반 중소벤처기업 인수합병 활성화 지원", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518013900051", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["중소기업", "인수합병"], "business_opportunity": "중소기업의 성장과 발전에 기여할 수 있는 기회", "action": "참고"}, {"title": "[테크스냅] KT, 대학생 AI 교육봉사단 'KIT' 4기 출범", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518041800017", "ministry": "교육부", "relevance": "중간", "keywords": ["AI", "교육"], "business_opportunity": "AI 교육 및 인재 개발에 기여할 수 있는 기회", "action": "참고"}, {"title": "교육장관, 5·18 맞아 광주 고교 방문…\"역사교육 지원 강화\"", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518025400530", "ministry": "교육부", "relevance": "중간", "keywords": ["교육", "역사교육"], "business_opportunity": "교육부의 정책 방향에 따라 교육 지원 사업에 참여할 수 있는 기회", "action": "모니터링"}, {"title": "경기도, 플랫폼 노동자 산재보험료 지원사업 참여자 모집", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518033200060", "ministry": "고용노동부", "relevance": "중간", "keywords": ["플랫폼 노동자", "산재보험료"], "business_opportunity": "고용노동부의 정책 방향에 따라 노동자 지원 사업에 참여할 수 있는 기회", "action": "모니터링"}, {"title": "LH, 파리 국제 건축전시회 참가 중소기업 29일까지 모집", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518034500003", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["중소기업", "건축전시회"], "business_opportunity": "중소기업의 해외 진출을 지원할 수 있는 기회", "action": "모니터링"}, {"title": "기보, 서울회생법원과 회생기업 재기 지원 협력", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518028600051", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["중소기업", "회생기업"], "business_opportunity": "중소기업의 재기를 지원할 수 있는 기회", "action": "모니터링"}, {"title": "신한은행, 인천 중저신용 기업 등에 75억원 보증부 대출", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518047500002", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["중소기업", "보증부 대출"], "business_opportunity": "중소기업의 금융 지원을 제공할 수 있는 기회", "action": "모니터링"}, {"title": "BC카드, 레드햇 서밋서 에이전틱 AI 사례 제시…韓금융사 첫발표", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518042000002", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["AI", "금융사"], "business_opportunity": "AI 기술을 금융 산업에 적용할 수 있는 기회", "action": "모니터링"}, {"title": "[테크스냅] SK쉴더스·NHN와플랫, AI 기반 시니어 돌봄 실증", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518030900017", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["AI", "시니어 돌봄"], "business_opportunity": "AI 기술을 사회 복지 산업에 적용할 수 있는 기회", "action": "모니터링"}, {"title": "현대차·기아, 인도 학계와 전기차 공동 연구개발 계약", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518028300003", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["전기차", "공동 연구개발"], "business_opportunity": "중소기업의 기술 개발을 지원할 수 있는 기회", "action": "모니터링"}, {"title": "CJ도너스캠프, 다문화 인식 개선 '앙상블' 기부 캠페인 개최", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518022100030", "ministry": "교육부", "relevance": "중간", "keywords": ["다문화", "기부 캠페인"], "business_opportunity": "교육부의 정책 방향에 따라 다문화 교육 지원 사업에 참여할 수 있는 기회", "action": "모니터링"}, {"title": "카톡·네이버페이로 고유가 지원금 받는다", "source": "연합뉴스", "date": "2026-05-18", "url": "https://www.yna.co.kr/view/AKR20260518031000017", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["고유가", "지원금"], "business_opportunity": "중소기업의 지원을 제공할 수 있는 기회", "action": "모니터링"}], "weekly_insight": "이번 주 중소벤처기업부와 교육부의 정책 방향이 중소기업과 교육 지원에 중점을 두고 있는 것으로 나타났다. 또한, AI 기술의 적용이 다양한 산업에 확대되고 있는 추세이다.", "recommended_actions": ["중소기업 지원 사업에 참여하기", "AI 기술을 산업에 적용하기", "교육 지원 사업에 참여하기"]}, {"week": "2026-W19", "collected_date": "2026-05-11", "total_count": 40, "relevant_count": 10, "top_keywords": [{"keyword": "고용", "count": 5, "trend": "상승"}, {"keyword": "교육", "count": 4, "trend": "유지"}, {"keyword": "중소기업", "count": 3, "trend": "신규"}], "policies": [{"title": "노동부, 가족돌봄휴직·휴가 적용범위 확대 검토", "source": "한겨레", "date": "2026-05-11", "url": "https://www.hani.co.kr/arti/society/labor/1257997.html", "ministry": "고용노동부", "relevance": "높음", "keywords": ["고용", "가족돌봄휴직"], "business_opportunity": "우리 회사의 직업훈련 및 내일배움카드 사업과 연계 가능", "action": "즉시검토"}, {"title": "[게시판] 보훈부, '제대군인 고용우수기업' 인증 신청 접수", "source": "연합뉴스", "date": "2026-05-11", "url": "https://www.yna.co.kr/view/AKR20260511058000504", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["중소기업", "제대군인"], "business_opportunity": "우리 회사의 중소기업 지원 사업과 연계 가능", "action": "참고"}, {"title": "농식품부, '창업 네트워크' 본격 운영…권역별 협력 생태계 구축", "source": "연합뉴스", "date": "2026-05-11", "url": "https://www.yna.co.kr/view/AKR20260511056000030", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["중소기업", "창업"], "business_opportunity": "우리 회사의 창업 지원 사업과 연계 가능", "action": "모니터링"}], "weekly_insight": "이번 주 고용노동부는 가족돌봄휴직·휴가 적용범위를 확대 검토하고 있으며, 중소벤처기업부는 중소기업 지원 사업을 강화하고 있습니다. 교육부는 교육 과정 개편을 준비 중입니다.", "recommended_actions": ["고용노동부의 가족돌봄휴직·휴가 정책에 대한 즉시 검토", "중소벤처기업부의 중소기업 지원 사업에 대한 참고", "교육부의 교육 과정 개편에 대한 모니터링"]}, {"week": "2026-W18", "collected_date": "2026-05-07", "total_count": 30, "relevant_count": 10, "top_keywords": [{"keyword": "청년", "count": 5, "trend": "상승"}, {"keyword": "교육", "count": 4, "trend": "유지"}, {"keyword": "지원", "count": 3, "trend": "신규"}], "policies": [{"title": "예산군, 고립·은둔 청년 실태조사…맞춤형 지원책 마련", "source": "연합뉴스", "date": "2026-05-07", "url": "https://www.yna.co.kr/view/AKR20260507039100063", "ministry": "고용노동부", "relevance": "높음", "keywords": ["청년", "지원"], "business_opportunity": "우리 회사가 청년 지원 사업에 참여할 수 있는 기회", "action": "즉시검토"}, {"title": "경기도, '교육훈련 우수사례 평가' 행안부 장관상 수상", "source": "연합뉴스", "date": "2026-05-07", "url": "https://www.yna.co.kr/view/AKR20260507034300061", "ministry": "교육부", "relevance": "중간", "keywords": ["교육", "훈련"], "business_opportunity": "우리 회사가 교육훈련 사업에 참여할 수 있는 기회", "action": "참고"}, {"title": "중진공, K-패션 日 공략 지원…전략 수립·패션쇼까지 통합 지원", "source": "연합뉴스", "date": "2026-05-07", "url": "https://www.yna.co.kr/view/AKR20260507028500030", "ministry": "중소벤처기업부", "relevance": "높음", "keywords": ["지원", "중소기업"], "business_opportunity": "우리 회사가 중소기업 지원 사업에 참여할 수 있는 기회", "action": "즉시검토"}], "weekly_insight": "이번 주에는 청년 지원과 교육훈련 사업이 주목을 받았으며, 중소벤처기업부의 지원 사업도 활발하게 진행되고 있다. 우리 회사는 이러한 정부 정책과 지원 사업에 적극적으로 참여하여 사업 기회를 확대할 수 있을 것이다.", "recommended_actions": ["청년 지원 사업에 참여하기", "교육훈련 사업에 참여하기", "중소벤처기업부의 지원 사업에 참여하기"]}, {"week": "2026-W17", "collected_date": "2026-04-27", "total_count": 40, "relevant_count": 15, "top_keywords": [{"keyword": "고유가 지원금", "count": 7, "trend": "상승"}, {"keyword": "중소기업 지원", "count": 4, "trend": "유지"}, {"keyword": "교육 지원", "count": 3, "trend": "신규"}], "policies": [{"title": "고유가 피해지원금 신청 첫날…대전서도 취약계층 발걸음 이어져", "source": "연합뉴스", "date": "2026-04-27", "url": "https://www.yna.co.kr/view/AKR20260427068600063", "ministry": "기타", "relevance": "높음", "keywords": ["고유가 지원금", "취약계층"], "business_opportunity": "우리 회사가 취약계층을 대상으로 하는 교육/HR 사업을 확대할 수 있는 기회가 있을 수 있음", "action": "즉시검토"}, {"title": "중기부, '탄소감축 R&D' 참여 中企 모집…철강·알루미늄 분야", "source": "연합뉴스", "date": "2026-04-27", "url": "https://www.yna.co.kr/view/AKR20260427036600030", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["중소기업 지원", "탄소감축"], "business_opportunity": "우리 회사가 중소기업을 대상으로 하는 교육/HR 사업을 통해 탄소감축을 지원할 수 있는 기회가 있을 수 있음", "action": "참고"}, {"title": "교육부, '영유아 교육·보육 정보시스템' 구축 시범지역 공모", "source": "연합뉴스", "date": "2026-04-27", "url": "https://www.yna.co.kr/view/AKR20260427039200530", "ministry": "교육부", "relevance": "높음", "keywords": ["교육 지원", "영유아 교육"], "business_opportunity": "우리 회사가 교육부의 영유아 교육·보육 정보시스템 구축 사업에 참여할 수 있는 기회가 있을 수 있음", "action": "즉시검토"}, {"title": "광주경총, 고용이음 패키지 사업 추진…총 9억원 지원", "source": "연합뉴스", "date": "2026-04-27", "url": "https://www.yna.co.kr/view/AKR20260427055700054", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["중소기업 지원", "고용이음"], "business_opportunity": "우리 회사가 중소기업을 대상으로 하는 교육/HR 사업을 통해 고용이음 패키지 사업에 참여할 수 있는 기회가 있을 수 있음", "action": "참고"}, {"title": "포스코그룹, 산재가족돌봄재단 '포스코 희망이음' 출범", "source": "연합뉴스", "date": "2026-04-27", "url": "https://www.yna.co.kr/view/AKR20260427088900003", "ministry": "중소벤처기업부", "relevance": "중간", "keywords": ["중소기업 지원", "산재가족돌봄재단"], "business_opportunity": "우리 회사가 중소기업을 대상으로 하는 교육/HR 사업을 통해 산재가족돌봄재단에 참여할 수 있는 기회가 있을 수 있음", "action": "참고"}], "weekly_insight": "이번 주 정부는 고유가 지원금을 지급하기 시작했으며, 중소기업을 지원하는 다양한 사업을 추진하고 있음. 교육부는 영유아 교육·보육 정보시스템 구축 사업을 추진하고 있으며, 중소벤처기업부는 중소기업을 지원하는 다양한 사업을 추진하고 있음.", "recommended_actions": ["고유가 지원금을 활용한 교육/HR 사업을 개발하기", "중소기업을 대상으로 하는 교육/HR 사업을 확대하기", "교육부의 영유아 교육·보육 정보시스템 구축 사업에 참여하기"]}, {"week": "2026-W16", "collected_date": "2026-04-20", "total_count": 30, "relevant_count": 5, "top_keywords": [{"keyword": "청년", "count": 3, "trend": "상승"}, {"keyword": "교육", "count": 2, "trend": "유지"}, {"keyword": "인재", "count": 2, "trend": "신규"}], "policies": [{"title": "K-푸드 창업사관학교 출범…1년 간 창업 전 과정 지원", "source": "정책브리핑", "date": "2026-04-16", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962824&call_from=rsslink", "relevance": "높음", "keywords": ["청년", "창업", "교육"], "business_opportunity": "청년 창업을 지원하는 정책으로, 우리 회사의 교육/HR 사업과 연계 가능성이 높다. 청년 창업을 위한 교육 및 훈련 프로그램 개발에 활용할 수 있다.", "action": "즉시검토"}, {"title": "AI로 돌봄 공백 메운다…인공지능 돌봄기술 전주기 지원체계 구축", "source": "정책브리핑", "date": "2026-04-16", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962821&call_from=rsslink", "relevance": "중간", "keywords": ["AI", "교육"], "business_opportunity": "AI를 활용한 돌봄 기술 개발로, 우리 회사의 교육/HR 사업과 연계 가능성이 있다. AI 교육 및 훈련 프로그램 개발에 활용할 수 있다.", "action": "참고"}, {"title": "국가바이오혁신위 출범…초격차 기술로 글로벌 바이오 중심국 도약", "source": "정책브리핑", "date": "2026-04-16", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962827&call_from=rsslink", "relevance": "중간", "keywords": ["인재", "교육"], "business_opportunity": "바이오 기술 개발로, 우리 회사의 교육/HR 사업과 연계 가능성이 있다. 바이오 기술 관련 교육 및 훈련 프로그램 개발에 활용할 수 있다.", "action": "참고"}, {"title": "올해 강소특구에 535억 지원…청년 창업에 60% 이상 배정", "source": "정책브리핑", "date": "2026-04-16", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962831&call_from=rsslink", "relevance": "높음", "keywords": ["청년", "창업", "교육"], "business_opportunity": "청년 창업을 지원하는 정책으로, 우리 회사의 교육/HR 사업과 연계 가능성이 높다. 청년 창업을 위한 교육 및 훈련 프로그램 개발에 활용할 수 있다.", "action": "즉시검토"}, {"title": "이 대통령 \"국가 안보 차원서 첨단 기술과 인재 중점 보호\"", "source": "정책브리핑", "date": "2026-04-16", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962823&call_from=rsslink", "relevance": "중간", "keywords": ["인재", "교육"], "business_opportunity": "첨단 기술 개발로, 우리 회사의 교육/HR 사업과 연계 가능성이 있다. 첨단 기술 관련 교육 및 훈련 프로그램 개발에 활용할 수 있다.", "action": "참고"}], "weekly_insight": "이번 주에는 청년 창업과 교육 관련 정책이 많이 발표되었습니다. 또한, AI와 바이오 기술 개발 관련 정책도 발표되었습니다. 이러한 정책들은 우리 회사의 교육/HR 사업과 연계 가능성이 높습니다.", "recommended_actions": ["청년 창업을 위한 교육 및 훈련 프로그램 개발", "AI와 바이오 기술 관련 교육 및 훈련 프로그램 개발", "첨단 기술 개발을 위한 인재 중점 보호 정책 개발"]}, {"week": "2026-W15", "collected_date": "2026-04-13", "total_count": 30, "relevant_count": 5, "top_keywords": [{"keyword": "직업훈련", "count": 2, "trend": "상승"}, {"keyword": "인재개발", "count": 1, "trend": "신규"}, {"keyword": "에듀테크", "count": 1, "trend": "유지"}], "policies": [{"title": "배움 문턱 낮춰요 1인당 35만 원 지원", "source": "정책브리핑", "date": "2026-04-10", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962019&call_from=rsslink", "relevance": "높음", "keywords": ["직업훈련", "인재개발"], "business_opportunity": "우리 회사의 교육/HR 사업에 활용할 수 있는 정부 지원 정책", "action": "즉시검토"}, {"title": "새벽에도 외국어도 OK! 노동법 상담 도우미 24시간 대기 중", "source": "정책브리핑", "date": "2026-04-10", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962024&call_from=rsslink", "relevance": "중간", "keywords": ["직업훈련"], "business_opportunity": "노동법 관련 교육 콘텐츠 개발", "action": "참고"}, {"title": "야간 연장돌봄 전화 한 통으로 '1522-1318' 기억하세요", "source": "정책브리핑", "date": "2026-04-10", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962018&call_from=rsslink", "relevance": "중간", "keywords": ["에듀테크"], "business_opportunity": "아동돌봄 관련 교육 콘텐츠 개발", "action": "모니터링"}, {"title": "학원비 '편법인상' 등 2394건 적발…\"불법행위 신고포상금 10배로\"", "source": "정책브리핑", "date": "2026-04-09", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962378&call_from=rsslink", "relevance": "중간", "keywords": ["직업훈련"], "business_opportunity": "학원비 관련 교육 콘텐츠 개발", "action": "참고"}, {"title": "고위공직자범죄 내부고발 익명신고센터' 개소…신고자 신원 보호", "source": "정책브리핑", "date": "2026-04-09", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962380&call_from=rsslink", "relevance": "중간", "keywords": ["인재개발"], "business_opportunity": "내부고발 관련 교육 콘텐츠 개발", "action": "모니터링"}], "weekly_insight": "이번 주에는 직업훈련과 인재개발 관련 정책이 주목을 받았으며, 에듀테크 관련 정책도 유지되는趨勢를 보였다. 정부의 지원 정책을 활용하여 교육/HR 사업을 발전시킬 수 있는 기회가 있다.", "recommended_actions": ["즉시검토", "참고", "모니터링"]}, {"week": "2026-W14", "collected_date": "2026-04-09", "total_count": 30, "relevant_count": 5, "top_keywords": [{"keyword": "교육", "count": 3, "trend": "상승"}, {"keyword": "훈련", "count": 2, "trend": "유지"}, {"keyword": "인재개발", "count": 1, "trend": "신규"}], "policies": [{"title": "이주배경학생 위한 '모두의 한국어' 시스템, 연말 전면 개방", "source": "정책브리핑", "date": "2026-04-08", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962324&call_from=rsslink", "relevance": "높음", "keywords": ["교육", "인재개발"], "business_opportunity": "우리 회사의 교육/HR 사업에 적용 가능한 포인트는 이주배경학생을 위한 한국어 교육 시스템의 개발 및 제공입니다. 이를 통해 우리 회사의 교육 콘텐츠 및 서비스를 다각화할 수 있습니다.", "action": "즉시검토"}, {"title": "현직 교사 500명 1:1 대입 상담 지원…AI 대화형 챗봇도 신설", "source": "정책브리핑", "date": "2026-04-07", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962230&call_from=rsslink", "relevance": "중간", "keywords": ["교육", "훈련"], "business_opportunity": "우리 회사의 교육/HR 사업에 적용 가능한 포인트는 대입 상담 지원 서비스의 개발 및 제공입니다. 이를 통해 우리 회사의 교육 서비스를 확대할 수 있습니다.", "action": "참고"}, {"title": "AI·반도체 박사급 인재-기업 잇는 산·학 프로젝트 추진", "source": "정책브리핑", "date": "2026-04-08", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962321&call_from=rsslink", "relevance": "중간", "keywords": ["인재개발", "훈련"], "business_opportunity": "우리 회사의 교육/HR 사업에 적용 가능한 포인트는 박사급 인재를 위한 산·학 프로젝트의 개발 및 제공입니다. 이를 통해 우리 회사의 교육 서비스를 다각화할 수 있습니다.", "action": "모니터링"}, {"title": "5~10년차 공무원에 '특별휴가' 준다…'돌봄휴가' 사유도 확대", "source": "정책브리핑", "date": "2026-04-07", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962237&call_from=rsslink", "relevance": "중간", "keywords": ["인재개발", "훈련"], "business_opportunity": "우리 회사의 교육/HR 사업에 적용 가능한 포인트는 공무원의 휴가 제도 개선입니다. 이를 통해 우리 회사의 교육 서비스를 확대할 수 있습니다.", "action": "모니터링"}, {"title": "스타트업의 방산 진출 늘린다…'모두의 챌린지 방산' 본격 추진", "source": "정책브리핑", "date": "2026-04-08", "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148962308&call_from=rsslink", "relevance": "중간", "keywords": ["인재개발", "훈련"], "business_opportunity": "우리 회사의 교육/HR 사업에 적용 가능한 포인트는 스타트업의 방산 진출을 위한 지원 서비스의 개발 및 제공입니다. 이를 통해 우리 회사의 교육 서비스를 다각화할 수 있습니다.", "action": "모니터링"}], "weekly_insight": "이번 주에는 교육 및 인재개발 관련 정책이 다수 발표되었습니다. 특히, 이주배경학생을 위한 한국어 교육 시스템의 개발 및 제공, 대입 상담 지원 서비스의 개발 및 제공, 박사급 인재를 위한 산·학 프로젝트의 개발 및 제공 등이 우리 회사의 교육/HR 사업에 적용 가능한 포인트입니다.", "recommended_actions": ["이주배경학생을 위한 한국어 교육 시스템의 개발 및 제공", "대입 상담 지원 서비스의 개발 및 제공", "박사급 인재를 위한 산·학 프로젝트의 개발 및 제공"]}];
+let currentIdx = 0;  // 0 = 최신 (history[0])
+
+function changeWeek(dir) {
+  currentIdx += dir;
+  render();
+}
+
+function render() {
+  const d = HISTORY[currentIdx];
+  if (!d) return;
+
+  // 네비게이터 업데이트
+  document.getElementById('week-label').textContent = d.week || '—';
+  document.getElementById('week-sub').textContent = '수집일: ' + (d.collected_date || '—') + '  (' + (currentIdx + 1) + ' / ' + HISTORY.length + '주)';
+  document.getElementById('btn-prev').disabled = currentIdx >= HISTORY.length - 1;
+  document.getElementById('btn-next').disabled = currentIdx <= 0;
+
+  // 스탯
+  const topKw = (d.top_keywords || [])[0];
+  document.getElementById('stats').innerHTML = `
+    <div class="stat-box">
+      <div class="stat-label">전체 수집</div>
+      <div class="stat-value">${d.total_count || 0}</div>
+      <div class="stat-sub">건</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">교육/HR 관련</div>
+      <div class="stat-value red">${d.relevant_count || 0}</div>
+      <div class="stat-sub">건 (높음+중간)</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">핵심 키워드 수</div>
+      <div class="stat-value">${(d.top_keywords || []).length}</div>
+      <div class="stat-sub">개 추출</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Top 키워드</div>
+      <div class="stat-value sm">${topKw ? topKw.keyword : '—'}</div>
+      <div class="stat-sub">${topKw ? topKw.trend || '' : ''}</div>
+    </div>
+  `;
+
+  // 인사이트
+  document.getElementById('insight-text').textContent = d.weekly_insight || '분석 결과가 없습니다.';
+
+  // 키워드 칩
+  const trendClass = { '상승': 'trend-up', '신규': 'trend-new', '유지': 'trend-keep' };
+  document.getElementById('kw-chips').innerHTML = (d.top_keywords || []).map(kw => `
+    <div class="kw-chip">
+      ${kw.keyword}
+      <span class="kw-trend ${trendClass[kw.trend] || 'trend-keep'}">${kw.trend || ''}</span>
+    </div>
+  `).join('') || '<span style="color:#94a3b8">키워드 없음</span>';
+
+  // 권장 액션
+  document.getElementById('action-list').innerHTML = (d.recommended_actions || []).map((a, i) => `
+    <li><span class="action-icon">${i+1}</span>${a}</li>
+  `).join('') || '<li><span class="action-icon">-</span>권장 액션 없음</li>';
+
+  // 정책 카드
+  const relColor = { '높음': '#ef4444', '중간': '#f97316', '낮음': '#94a3b8' };
+  const badgeCls = { '즉시검토': 'badge-red', '참고': 'badge-orange', '모니터링': 'badge-gray' };
+  const policies = d.policies || [];
+  document.getElementById('policy-cards').innerHTML = policies.length ? policies.map(p => `
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <span class="rel-dot" style="background:${relColor[p.relevance] || '#94a3b8'}"></span>
+        <span class="policy-title"><a href="${p.url || '#'}" target="_blank">${p.title || ''}</a></span>
+        <span class="action-badge ${badgeCls[p.action] || 'badge-gray'}">${p.action || ''}</span>
+      </div>
+      <div class="policy-meta">${p.ministry ? '['+p.ministry+'] ' : ''}&nbsp;${p.source || ''} &nbsp;·&nbsp; ${p.date || ''}</div>
+      <div class="policy-opp">${p.business_opportunity || ''}</div>
+      <div class="policy-tags">${(p.keywords || []).map(k => `<span class="tag">${k}</span>`).join('')}</div>
+    </div>
+  `).join('') : '<div class="empty-msg">관련 정책이 없습니다.</div>';
+}
+
+render();
+</script>
+</body>
+</html>
